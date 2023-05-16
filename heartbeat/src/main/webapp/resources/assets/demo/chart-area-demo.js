@@ -52,3 +52,18 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+//함수를 정의하여 데이터 값 업데이트 및 차트 업데이트를 호출하는 부분을 만듦
+function updateChart() {
+  // 새로운 데이터 값
+  var newData = [15000, 25162, 20263, 13394, 22287, 32682, 37274, 29259, 21849, 19159, 27651, 28984, 32451];
+
+  // 데이터셋의 데이터 값을 업데이트
+  myLineChart.data.datasets[0].data = newData;
+
+  // 차트 업데이트
+  myLineChart.update();
+}
+
+// 일정한 간격으로 updateChart 함수를 호출하는 타이머를 설정 (10초마다)
+setInterval(updateChart, 10000);

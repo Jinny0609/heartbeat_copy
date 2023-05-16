@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
+var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
@@ -44,3 +44,18 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+//함수를 정의하여 데이터 값 업데이트 및 차트 업데이트를 호출하는 부분을 만듦
+function updateChart() {
+  // 새로운 데이터 값
+  var newData = [5000, 8312, 4251, 6841, 7221, 11984];
+
+  // 데이터셋의 데이터 값을 업데이트
+  myBarChart.data.datasets[0].data = newData;
+
+  // 차트 업데이트
+  myBarChart.update();
+}
+
+// 일정한 간격으로 updateChart 함수를 호출하는 타이머를 설정 (10초마다)
+setInterval(updateChart, 10000);
